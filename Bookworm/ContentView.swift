@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc // To delete books.
-    @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book> // For reading all the books we have.
+    @FetchRequest(sortDescriptors: [ // For sorting books...
+        SortDescriptor(\.title), // ...by its title...
+        SortDescriptor(\.author) // ...and then by its author.
+    ]) var books: FetchedResults<Book> // For reading all the books we have.
     
     @State private var showingAddScreen = false
     

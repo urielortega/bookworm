@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book>
+    @Environment(\.managedObjectContext) var moc // To delete books.
+    @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book> // For reading all the books we have.
     
     @State private var showingAddScreen = false
     
@@ -18,7 +18,7 @@ struct ContentView: View {
             List {
                 ForEach(books) { book in
                     NavigationLink {
-                        Text(book.title ?? "Unknown Title")
+                        DetailView(book: book)
                     } label: {
                         HStack {
                             EmojiRatingView(rating: book.rating)

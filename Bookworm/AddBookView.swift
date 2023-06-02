@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AddBookView: View {
-    @Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) var moc // To save books.
     @Environment(\.dismiss) var dismiss
     
     @State private var title = ""
     @State private var author = ""
     @State private var rating = 3
-    @State private var genre = ""
+    @State private var genre = "Fantasy"
     @State private var review = ""
     
     let genres = ["Fantasy", "Horror", "Kids", "Mistery", "Poetry", "Romance", "Thiller"]

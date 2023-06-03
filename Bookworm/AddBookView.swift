@@ -14,10 +14,10 @@ struct AddBookView: View {
     @State private var title = ""
     @State private var author = ""
     @State private var rating = 3
-    @State private var genre = "Fantasy"
+    @State private var genre = "Others"
     @State private var review = ""
     
-    let genres = ["Fantasy", "Horror", "Kids", "Mistery", "Poetry", "Romance", "Thiller"]
+    let genres = ["Others", "Fantasy", "Horror", "Kids", "Mistery", "Poetry", "Romance", "Thiller"]
     
     var body: some View {
         NavigationStack {
@@ -54,6 +54,7 @@ struct AddBookView: View {
                         dismiss()
                     }
                 }
+                .disabled(title.isPureWhitespace || author.isPureWhitespace)
             }
             .navigationTitle("Add Book")
         }

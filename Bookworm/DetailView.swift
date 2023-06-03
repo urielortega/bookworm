@@ -17,11 +17,11 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             ZStackLayout(alignment: .bottomTrailing) {
-                Image(book.genre ?? "Fantasy")
+                Image(book.genre ?? "Others")
                     .resizable()
                     .scaledToFit()
                 
-                Text(book.genre?.uppercased() ?? "FANTASY")
+                Text(book.genre?.uppercased() ?? "Others")
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)

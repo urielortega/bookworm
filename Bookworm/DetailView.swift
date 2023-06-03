@@ -20,20 +20,21 @@ struct DetailView: View {
                 Image(book.genre ?? "Others")
                     .resizable()
                     .scaledToFit()
-                
+
                 Text(book.genre?.uppercased() ?? "Others")
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
                     .foregroundColor(.white)
                     .background(.black.opacity(0.75))
-                    .clipShape(Capsule())
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                     .offset(x: -5, y: -5)
             }
             
-            Text(book.author ?? "Unknown Author")
-                .font(.title)
+            Text("By \(book.author ?? "Unknown Author")")
+                .font(.title3.italic())
                 .foregroundColor(.secondary)
+                .padding()
             
             Text(book.review ?? "No review")
                 .padding()

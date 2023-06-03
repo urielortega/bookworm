@@ -16,6 +16,7 @@ struct AddBookView: View {
     @State private var rating = 3
     @State private var genre = "Others"
     @State private var review = ""
+    @State private var date = Date.now
     
     let genres = ["Others", "Fantasy", "Horror", "Kids", "Mistery", "Poetry", "Romance", "Thiller"]
     
@@ -48,6 +49,7 @@ struct AddBookView: View {
                         newBook.rating = Int16(rating)
                         newBook.genre = genre
                         newBook.review = review
+                        newBook.date = date
                         
                         try? moc.save()
                         

@@ -40,6 +40,14 @@ struct DetailView: View {
             
             RatingView(rating: .constant(Int(book.rating)))
                 .font(.largeTitle)
+                        
+            VStack {
+                Text("Registered on")
+                Text(book.date ?? Date.now, format: .dateTime.day().month().year())
+            }
+            .font(.caption)
+            .foregroundColor(.secondary)
+            .padding(.vertical)
         }
         .navigationTitle(book.title ?? "Unknown Book")
         .navigationBarTitleDisplayMode(.inline)

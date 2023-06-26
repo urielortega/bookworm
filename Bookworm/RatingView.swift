@@ -33,6 +33,19 @@ struct RatingView: View {
                     }
             }
         }
+        .accessibilityElement() // Read the above as a single entity.
+        .accessibilityLabel("Rating") // Read it out as "Rating"
+        .accessibilityValue(rating == 1 ? "1 star" : "\(rating) stars") // Read the stars value.
+        .accessibilityAdjustableAction { direction in // Swipe to adjust rating.
+            switch direction {
+            case .increment:
+                if rating < maximumRating { rating += 1 }
+            case .decrement:
+                if rating > 1 { rating -= 1 }
+            default:
+                break
+            }
+        }
     }
     
     func image(for number: Int) -> Image {
